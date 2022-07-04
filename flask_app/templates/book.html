@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Authors</title>
+</head>
+<body>
+    <div class="container">
+        <div class="align">
+            <div class ="left">
+                <h1 class="pad">New Books</h1>
+                <form action="/addtobooks" method="POST">
+                    <div class="form-outline mb-4" class="pad">
+                        <label for="name" >Title:</label>
+                        <input type="text" name="title">
+                    </div>
+                    <div class="form-outline mb-4" class="pad" style="margin-right: 90px;">
+                        <label for="name" >Number of Pages:</label>
+                        <input type="text" name="pages">
+                    </div>
+                    <input type="submit" value="Add Book" style="background-color: blue; color: white;">
+                </form>
+            </div>
+            <a href="http://localhost:5000/authors">Authors</a>
+            <a href="http://localhost:5000/books">Books</a>
+        </div>
+        <div class="right">
+            <h1>All Books</h1>
+            <div >
+                {% for book in books %}
+                <p><a href='/books/{{ book.id }}'> {{ book.title }} </a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
